@@ -7,9 +7,9 @@
   <a (click)="logout()">Logout</a> 
 </nav>--> 
  <!-- <div *ngIf="!auth.isLoggedIn()"> *ngIf="isAuthenticated"-->
-  <div >
+  <div *ngIf="isAuthenticated">
 <app-navbar></app-navbar>
-</div>
+</div >
  <app-SessionTimeoutModal></app-SessionTimeoutModal> 
 <router-outlet></router-outlet>
 

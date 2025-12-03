@@ -40,7 +40,7 @@ export const routes: Routes = [
     { path: 'reactive', component: ProductModelDrivenComponent, canDeactivate: [check1Guard] },
     { path: 'projection', component: ProjectionComponent },
     { path: 'observable', component: ObservableSampleComponent },
-    { path: 'product-list', component: ProductListComponent },
+    { path: 'product-list', component: ProductListComponent , canActivate:[authGuard] },
     { path: 'signal', component: SignalDemoComponent },
     {path: 'mytest', component: MytestComponent},
     { path: 'userlist',component: UserlistComponent , canActivate:[authGuard]},

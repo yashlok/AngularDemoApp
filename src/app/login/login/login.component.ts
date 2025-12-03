@@ -31,7 +31,13 @@ loginSubmit(form: any) {
     console.log(form.value.username);
    // let  u =form.value.username.split("user")[1];
      let admin = form.value.username.indexOf("admin") !== -1;
-    if (admin){    alert('Admin login: ' + admin)};
+    if (admin){  
+      localStorage.setItem('IsAdmin', 'true');
+      this.auth.isAdminLoggedInn();
+     // alert('Admin login: ' + admin)
+    } else {
+      localStorage.setItem('IsAdmin', 'false');
+    }       
     let  user =form.value.username.replace("user","").replace("admin","");
     alert('Welcome '+ user);
   const body = {    
@@ -54,7 +60,7 @@ loginSubmit(form: any) {
             localStorage.setItem('refreshToken', res.refreshToken);
           }
           // Save user details
-          localStorage.setItem('user', JSON.stringify(res.username));
+          localStorage.setItem('user', JSON.stringify(user));
           console.log('username- ', localStorage.getItem('user'));
           localStorage.setItem('Islogin', 'true');
           console.log(localStorage.getItem('Islogin'));

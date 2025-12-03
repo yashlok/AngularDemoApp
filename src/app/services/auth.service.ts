@@ -16,12 +16,16 @@ export class AuthService {
   private loggedInUser = new BehaviorSubject<boolean>(false); // Initial state: not logged in
   isLoggedInU = this.loggedInUser.asObservable();
 
+  private loggedInAdmin = new BehaviorSubject<boolean>(false);  
+  isAdminLoggedIn = this.loggedInAdmin.asObservable();
+
      
   Login() {
     //this.loggedIn = true;
     // Implement your login logic (e.g., API call, set token)
     localStorage.setItem('currentUser', 'someUser'); // Simulate login
     this.loggedInUser.next(true);
+    this.loggedInAdmin.next(true);
     console.log('User log in :  this.loggedInUser');
   }
 
@@ -32,7 +36,9 @@ export class AuthService {
     localStorage.removeItem('user');
     localStorage.removeItem('currentUser');
     localStorage.setItem('Islogin', 'false');
+    localStorage.setItem('IsAdmin', 'false');
     this.loggedInUser.next(false);
+    this.loggedInAdmin.next(false);
     console.log('User logged out');
   }
 
@@ -40,6 +46,11 @@ export class AuthService {
     const isLoggedIn = localStorage.getItem("Islogin") === 'true';
     this.loggedInUser.next(isLoggedIn);
     return isLoggedIn;
+  }
+  isAdminLoggedInn(): boolean {
+    const isAdminLoggedIn = localStorage.getItem("IsAdmin") === 'true';
+    this.loggedInAdmin.next(isAdminLoggedIn);
+    return isAdminLoggedIn;
   }
 
 
@@ -52,6 +63,11 @@ user: User | undefined;
     if(loggedInUser === 'true')
     {
        this.loggedInUser.next(true);
+    }
+    const loggedInAdmin = localStorage.getItem("IsAdmin");
+    if(loggedInAdmin === 'true')
+    {
+       this.loggedInAdmin.next(true);
     }
   }
 
