@@ -27,26 +27,20 @@ export class AuthService {
 
   Logout() {
     this.loggedIn = false;
+    localStorage.removeItem('token');
+    localStorage.removeItem('refreshToken');
+    localStorage.removeItem('user');
+    localStorage.removeItem('currentUser');
+    localStorage.setItem('Islogin', 'false');
     this.loggedInUser.next(false);
-    this.isLoggedInU.subscribe(status => {
-      console.log('Logout subscription status:', status);
-    });
-    //console.log('User log out :'+   );
+    console.log('User logged out');
   }
 
   isLoggedIn(): boolean {
-     // Implement your logout logic (e.g., clear token, clear local storage)
-    localStorage.removeItem('currentUser'); // Simulate logout
-    this.loggedInUser.next(true); 
-    return true;
-
-    // if(localStorage.getItem("Islogin")==='true'){
-    //   return true;
-    //  }{
-    // return  false;
-    // return this.loggedIn;
-    // }
-}
+    const isLoggedIn = localStorage.getItem("Islogin") === 'true';
+    this.loggedInUser.next(isLoggedIn);
+    return isLoggedIn;
+  }
 
 
 user: User | undefined;
@@ -55,7 +49,7 @@ user: User | undefined;
     this.httpHeaders = new HttpHeaders({ 'content-type': 'application/json' });
    // this.LoadAuthUser();
    const loggedInUser= localStorage.getItem("Islogin");
-    if(loggedInUser)
+    if(loggedInUser === 'true')
     {
        this.loggedInUser.next(true);
     }

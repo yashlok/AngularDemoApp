@@ -1,4 +1,4 @@
-.modal-backdrop {
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,9 +11,48 @@
   z-index: 999;
 }
 
-.modal-box {
+.modal-dialog {
+  position: relative;
   background: white;
   padding: 20px;
   border-radius: 10px;
   min-width: 300px;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none !important;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  z-index: 1000;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+.modal-dialog button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-dialog button:not(.close-btn):first-of-type {
+  background: #007bff;
+  color: white;
+}
+
+.modal-dialog button:not(.close-btn):last-of-type {
+  background: #dc3545;
+  color: white;
 }
