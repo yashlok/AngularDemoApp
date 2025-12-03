@@ -24,19 +24,16 @@
                   <li class="nav-item"  *ngIf="isAdmin" >
                     <a class="nav-link" routerLinkActive="highlight" [routerLink]="['userlist']">User List</a>
                 </li>
-                   <!-- *ngIf="!localStorage.getItem('Islogin') || localStorage.getItem('Islogin')==='false'" -->
-                  <li class="nav-item "  *ngIf="!isAuthenticated" >
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"  *ngIf="!isAuthenticated" >
                     <a class="nav-link" routerLinkActive="highlight" [routerLink]="['login']"  >Login</a>
                 </li>
-                <!-- <li class="nav-item" *ngIf="isAuthenticated" >
-                    <a class="nav-link link-button" routerLinkActive="highlight" (click)="onLogout()" >Logut</a>
-                </li> -->
+                <li class="nav-item" *ngIf="isAuthenticated" >
+                    <a class="nav-link link-button" routerLinkActive="highlight" (click)="onLogout()" >Logout</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
-               
-              <div class="nav-item"  *ngIf="isAuthenticated">
-                    <a class="nav-link link-button" routerLinkActive="highlight" (click)="onLogout()" >Logut</a>
-              </div>
             
