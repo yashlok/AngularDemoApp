@@ -1,0 +1,17 @@
+<p>article works!</p>
+
+<div class="alert alert-success text-center">
+    <b>
+        <ng-content select="header"></ng-content>
+    </b>
+</div>
+
+<div class="alert alert-primary">
+    <ng-content select=".cls"></ng-content>
+</div>
+
+<div class="alert alert-info">
+    <ng-content select="footer"></ng-content>
+
+    <p>Current Date:{{currentDate | date: 'MMM dd yyyy'}}</p>
+</div>

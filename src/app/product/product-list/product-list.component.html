@@ -1,0 +1,65 @@
+<h4>Product List</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @for (product of products; track product.product_id) {
+        <tr>
+            <td>{{product.product_id}}</td>
+            <td>{{product.brand}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>
+                <button class="btn btn-warning" title="Edit Product" (click)="editProduct(product.product_id)">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" title="Delete Product" (click)="deleteProduct(product)">X</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+<!-- <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @for (product of products; track product.productId) {
+        <tr>
+            <td>{{product.productId}}</td>
+            <td>{{product.productCode}}</td>
+            <td>{{product.productName}}</td>
+            <td>{{product.price}}</td>
+            <td>
+                <button class="btn btn-warning" title="Edit Product" (click)="editProduct(product.productId)">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" title="Delete Product" (click)="deleteProduct(product)">X</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table> -->

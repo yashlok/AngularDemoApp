@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
+
+.r1{
+    background-color: red;
+}
+
+.b1{
+    background-color: blue;
+}
+
+.g1{
+    background-color: green;
+    font-weight: bold;
+}
+
+.highlight{
+    background-color:darkgoldenrod;
+    border-radius: 10px;
+}

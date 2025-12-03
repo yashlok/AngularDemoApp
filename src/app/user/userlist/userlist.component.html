@@ -1,0 +1,47 @@
+<p>userlist works!</p>
+
+ <!-- <div ngIf="user1?.length > 0 && user2?.length > 0 && user3?.length > 0"></div> -->
+ <!-- <h3>User List 1</h3> -->
+<!-- user data: {{ user1 | json }} -->
+ 
+<table style="width: 80%; border-collapse: collapse; border: 2px solid #12d473;">
+  <tr style="background-color: #96cfbc;">
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+ 
+     <tr *ngFor="let u of user1">
+    <td>{{u.id}}</td>
+    <td>{{u.name}}</td>
+    <td>{{u.email}}</td>
+  </tr>    
+</table>
+<h3>User List 2</h3>
+<table style="width:80%; border-collapse: collapse; border: 2px solid #46030c;">
+  <tr style="background-color: #196e5c;">
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  <tr *ngFor="let u of user2">
+  <td>{{u.id}}</td>
+    <td>{{u.name}}</td>
+    <td>{{u.email}}</td>
+  </tr>
+</table>
+<!-- user data: {{ user2 | json }} -->
+<h3>User List 3</h3>
+<table style="width:80%; border-collapse: collapse; border: 2px solid #9baa11;">
+  <tr style="background-color: #2fc47e;">
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  <tr *ngFor="let u of user3">
+   <td>{{u.id}}</td>
+    <td>{{u.name}}</td>
+    <td>{{u.email}}</td>
+  </tr>
+</table> 
+<!-- user data: {{ user3 | json }} -->

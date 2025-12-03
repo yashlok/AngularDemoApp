@@ -1,0 +1,34 @@
+<p>signal-demo works!</p>
+
+Num1: <input type="text" class="form-control" value="{{num1()}}" />
+
+Num2: <input type="text" class="form-control" value="{{num2()}}" />
+
+<button (click)="update1()">Update 1</button>
+
+<button (click)="update2()">Update 2</button>
+
+<span>{{num1()}} - {{num2()}}</span>
+
+<p>Total: {{total()}}</p>
+
+<hr />
+
+<div class="alert alert-primary">
+    Active Products: {{activeCount()}} | InActive Products: {{inactiveCount()}}
+</div>
+
+<div class="form-group">
+    <label>Active / InActive</label> {{currentFilter()}}
+    <select class="form-select" (change)="updateFilter($event)">
+        <option value="all">All</option>
+        <option value="active">Active</option>
+        <option value="inactive">In Active</option>
+    </select>
+</div>
+
+<ul>
+    @for (prod of filteredProducts(); track $index) {
+    <!-- <li> {{prod.productId}} {{prod.productName}}</li>-->
+    } 
+</ul>

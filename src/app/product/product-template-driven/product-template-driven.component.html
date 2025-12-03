@@ -1,0 +1,38 @@
+<h4>Add Product (Templatedriven)</h4>
+
+<!-- <div class="row"> 
+    <div class="col-lg-6">
+        <form #frm="ngForm" (ngSubmit)="saveProduct(frm)">
+            <div class="form-group">
+                <label>Product Id</label>
+                <input type="text" class="form-control" name="pId" [disabled]="isEditMode"
+                [(ngModel)]="product.productId" required />
+                @if(frm.controls['pId']?.errors){
+                <span class="text-danger">Product Id is mandatory</span>
+                }
+            </div>
+            <div class="form-group">
+                <label>Product Code</label>
+                <input type="text" class="form-control" name="productCode" [(ngModel)]="product.productCode" />
+            </div>
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" class="form-control" name="productName" [(ngModel)]="product.productName"
+                    pattern="^[a-zA-Z0-9 ]+$" />
+                @if(frm.controls['productName']?.hasError('required')){
+                <span class="text-danger">Product Name is mandatory</span>
+                }
+                @if(frm.controls['productName']?.hasError('pattern')){
+                <span class="text-danger">Product Name is Invalid</span>
+                }
+            </div>
+            <div class="form-group">
+                <label>Product Price</label>
+                <input type="text" class="form-control" name="price" [(ngModel)]="product.price" />
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Save Product" />
+            </div>
+        </form>
+    </div>
+</div>-->

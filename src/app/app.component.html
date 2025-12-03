@@ -1,0 +1,19 @@
+<!-- <app-directive-sample></app-directive-sample>
+
+<app-pipe-sample></app-pipe-sample> -->
+ <!--<nav  class="navbar navbar-expand-lg bg-body-tertiary">
+  <a routerLink="/dashboard">Dashboard</a> &nbsp; | &nbsp;
+  <a routerLink="/userlist">Users</a>
+  <a (click)="logout()">Logout</a> 
+</nav>--> 
+ <!-- <div *ngIf="!auth.isLoggedIn()"> *ngIf="isAuthenticated"-->
+  <div >
+<app-navbar></app-navbar>
+</div>
+ <app-SessionTimeoutModal></app-SessionTimeoutModal> 
+<router-outlet></router-outlet>
+
+
+<div class="alert alert-primary text-center" #divAlert style="display:none">
+    {{message}}
+</div>

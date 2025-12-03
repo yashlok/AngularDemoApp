@@ -1,0 +1,37 @@
+<!--  
+<div class="row justify-content-center align-items-center pt-5">
+   <div class="col-md-3">
+
+
+
+   </div> 
+</div> -->
+
+<div class="row justify-content-center align-items-center pt-5">
+   <div class="col-md-4">
+  <!-- <h2>User Login</h2>   <hr />-->
+  <form #loginForm="ngForm"  (ngSubmit)="loginSubmit(loginForm)" class="modal-content animate">
+  <div class="imgcontainer">
+    <img src="login_7856126.png" width="20px" height="50px" alt="Login" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+     <input type="text" placeholder="Enter Username"    ngModel name="username" required> 
+
+         <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" ngModel name="password" required>
+
+       <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" ngModel name="remember"> Remember me
+    </label>
+  </div>
+
+  <!-- <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div> -->
+</form>
+</div>
+</div> 

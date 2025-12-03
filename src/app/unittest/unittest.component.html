@@ -1,0 +1,36 @@
+<p>unittest works!</p>
+
+<div>
+    <label>Enter Num1: </label>
+    <input type="text" [(ngModel)]="num1" />
+</div>
+<div>
+    <label>Enter Num2: </label>
+    <input type="text" [(ngModel)]="num2" />
+</div>
+<input type="button" class="btn btn-primary" value="Addition" (click)="addition()" />
+
+<div>
+    <h4 class="cls">Result: {{total}}</h4>
+</div>
+
+<hr/>
+<ul>
+    @for (item of products; track $index) {
+        <li>{{item.productName}} {{item.productId}}</li>
+    }
+</ul>
+
+<hr/>
+
+<form [formGroup]="frm" (ngSubmit)="saveCustomer()">
+    <div class="form-group">
+        <label>Customer Id</label>
+        <input type="text" formControlName="customerId" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label>Customer Name</label>
+        <input type="text" formControlName="customerName" class="form-control"/>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Save"/>
+</form>
