@@ -9,6 +9,7 @@ import { AuthService } from '../../services/auth.service';
  selector: 'app-SessionTimeoutModal',
   template: `<div *ngIf="showModal" class="modal-overlay">
       <div class="modal-dialog">
+        <button class="close-btn" (click)="closeModal()">&times;</button>
         <h2>Session Expiring Soon!</h2>
         <p>Your session will time out in {{ timeLeft }} seconds.</p>
         <p>Are you sure you want to extend your time?</p>
@@ -58,6 +59,10 @@ export class SessionTimeoutModalComponent implements OnInit, OnDestroy {
   logout(): void {
     this.sessionTimeoutService.stopWatching();
     this.showModal = false;
-    // Add logic to logout user immediately
+    this.authService.Logout();
+  }
+
+  closeModal(): void {
+    this.showModal = false;
   }
 }
