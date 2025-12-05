@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <h2>Upload Image</h2>
+  <div class="card">
+    <div class="card-body">
+      <div *ngIf="successMessage" class="alert alert-success" role="alert">
+        {{ successMessage }}
+      </div>
+      <div class="mb-3">
+        <label for="fileInput" class="form-label">Select Image</label>
+        <input type="file" class="form-control" id="fileInput" accept="image/*" (change)="onFileSelected($event)">
+      </div>
+      <button class="btn btn-primary" [disabled]="!selectedFile || uploading" (click)="uploadImage()">
+        <span *ngIf="uploading" class="spinner-border spinner-border-sm me-2"></span>
+        {{ uploading ? 'Uploading...' : 'Upload' }}
+      </button>
+    </div>
+  </div>
+</div>

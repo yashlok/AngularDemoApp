@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable, throwError } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { User } from '../models/user';
 import { Login } from '../models/login';
 import {BehaviorSubject  } from 'rxjs';
@@ -29,6 +30,23 @@ export class AuthService {
     console.log('User log in :  this.loggedInUser');
   }
 
+  refreshToken(): Observable<any> {
+    const refreshToken = localStorage.getItem('refreshToken');
+    if (!refreshToken) {
+      return throwError(() => new Error('No refresh token'));
+    }
+
+    return this.httpClient.post('https://dummyjson.com/auth/refresh', 
+      { refreshToken },
+      { headers: this.httpHeaders }
+    ).pipe(
+      tap((response: any) => {
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('refreshToken', response.refreshToken);
+      })
+    );
+  }
+
   Logout() {
     this.loggedIn = false;
     localStorage.removeItem('token');
@@ -42,8 +60,25 @@ export class AuthService {
     console.log('User logged out');
   }
 
+  isTokenExpired(): boolean {
+    const token = localStorage.getItem('token');
+    if (!token) return true;
+    
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.exp * 1000 < Date.now();
+    } catch {
+      return true;
+    }
+  }
+
   isLoggedIn(): boolean {
     const isLoggedIn = localStorage.getItem("Islogin") === 'true';
+    if (isLoggedIn && this.isTokenExpired()) {
+      this.refreshToken().subscribe({
+        error: () => this.Logout()
+      });
+    }
     this.loggedInUser.next(isLoggedIn);
     return isLoggedIn;
   }

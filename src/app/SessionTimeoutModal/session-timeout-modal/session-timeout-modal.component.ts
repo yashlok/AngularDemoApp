@@ -27,7 +27,7 @@ export class SessionTimeoutModalComponent implements OnInit, OnDestroy {
   private warningSubscription?: Subscription;
   private timeoutSubscription?: Subscription;
   private authSubscription?: Subscription;
-  private isLoggedIn = false;
+  isLoggedIn = false;
 
   constructor(private sessionTimeoutService: SessionTimeoutService, private router: Router,
     private authService: AuthService

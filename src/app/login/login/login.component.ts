@@ -22,7 +22,7 @@ export class LoginComponent {
  
 
   constructor(private HttpClient: HttpClient, private router: Router, private auth: AuthService) {
-    console.log('Login Component initialized ....');
+    //console.log('Login Component initialized ....');
   }
     
  
@@ -39,7 +39,7 @@ loginSubmit(form: any) {
       localStorage.setItem('IsAdmin', 'false');
     }       
     let  user =form.value.username.replace("user","").replace("admin","");
-    alert('Welcome '+ user);
+    //alert('Welcome '+ user);
   const body = {    
     username:  user,   //form.value.username,
     password: form.value.password  
@@ -78,7 +78,8 @@ loginSubmit(form: any) {
 
 
 
-
+//    username: 'emilysadmin',
+//    password: 'emilyspass',
 
 
 //  userForm!: FormGroup;
