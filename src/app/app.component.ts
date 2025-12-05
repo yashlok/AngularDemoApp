@@ -19,8 +19,7 @@ import { SessionTimeoutModalComponent } from './SessionTimeoutModal/session-time
   imports: [
     FirstsampleComponent,
     DatabindingComponent,
-    SessionTimeoutModalComponent,
- 
+    SessionTimeoutModalComponent, 
     RouterOutlet,
     NavbarComponent,
     CommonModule   

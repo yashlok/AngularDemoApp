@@ -16,6 +16,8 @@ import { SignalDemoComponent } from './signal-demo/signal-demo.component';
 import { MytestComponent } from './mytest/mytest.component';
 import { UserlistComponent } from './user/userlist/userlist.component';
 import { LoginComponent } from './login/login/login.component';
+import { BlobComponent } from './blob/blob.component';
+import { BlobUploadComponent } from './blob/blob-upload/blob-upload.component';
 
 export const routes: Routes = [
 
@@ -40,10 +42,12 @@ export const routes: Routes = [
     { path: 'reactive', component: ProductModelDrivenComponent, canDeactivate: [check1Guard] },
     { path: 'projection', component: ProjectionComponent },
     { path: 'observable', component: ObservableSampleComponent },
-    { path: 'product-list', component: ProductListComponent },
+    { path: 'product-list', component: ProductListComponent , canActivate:[authGuard] },
     { path: 'signal', component: SignalDemoComponent },
     {path: 'mytest', component: MytestComponent},
     { path: 'userlist',component: UserlistComponent , canActivate:[authGuard]},
+    { path: 'blob', component: BlobComponent, canActivate:[authGuard] },
+    { path: 'blob/upload', component: BlobUploadComponent, canActivate:[authGuard] },
     // { path: "**", redirectTo: 'home' }
     { path: "**", redirectTo: 'login' }
 ];

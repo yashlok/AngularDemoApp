@@ -18,7 +18,9 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent {
    isAuthenticated: boolean = false;
+   isAdmin: boolean = false;
   private authSubscription!: Subscription;
+  private adminSubscription!: Subscription;
   constructor(private router: Router, private authService: AuthService) {}
   // ngOnInit(): void {
   //   console.log('Navbar initialized');
@@ -28,6 +30,9 @@ export class NavbarComponent {
   ngOnInit(): void {
     this.authSubscription = this.authService.isLoggedInU.subscribe(status => {
       this.isAuthenticated = status;
+    });
+         this.adminSubscription= this.authService.isAdminLoggedIn.subscribe(status => {
+      this.isAdmin = status;
     });
   }
 
@@ -39,6 +44,7 @@ export class NavbarComponent {
     localStorage.removeItem('user');
     localStorage.removeItem('accessToken');
     localStorage.setItem('Islogin','false');
+    localStorage.setItem('IsAdmin','false');
     console.log('User logged out, localStorage cleared.');
     this.authService.Logout();
     this.router.navigate(['/login']);
@@ -50,6 +56,7 @@ export class NavbarComponent {
 
   ngOnDestroy(): void {
     this.authSubscription.unsubscribe();
+    this.adminSubscription.unsubscribe();
   }
 
 }

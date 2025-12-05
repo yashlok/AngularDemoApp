@@ -23,20 +23,7 @@ export class ProductListComponent implements OnInit {
     this.loadProducts();
   }
 
-   deleteProduct(prod: Product) {
-    //let confirmDelete = confirm(`Do you wish to delete ${prod.productName}?`);
-  //   if (confirmDelete) {
-  //     this.productService.deleteProduct(prod.productId ?? 0).subscribe({
-  //       next: (resp) => {
-  //         if (resp) {
-  //           this.messageService.notifyMessage('Product is deleted successfully');
-  //           this.loadProducts();
-  //         }
-  //       }
-  //     })
-  //   }
-   }
-
+  
   private loadProducts() {
     this.productService.getProducts().subscribe({
       next: (resp) => {
@@ -51,5 +38,21 @@ export class ProductListComponent implements OnInit {
   editProduct(id: number|undefined){
     this.router.navigate(['templatedriven'], { queryParams: {pid: id}});
   }
+
+  
+
+   deleteProduct(prod: Product) {
+    //let confirmDelete = confirm(`Do you wish to delete ${prod.productName}?`);
+  //   if (confirmDelete) {
+  //     this.productService.deleteProduct(prod.productId ?? 0).subscribe({
+  //       next: (resp) => {
+  //         if (resp) {
+  //           this.messageService.notifyMessage('Product is deleted successfully');
+  //           this.loadProducts();
+  //         }
+  //       }
+  //     })
+  //   }
+   }
 
 }
