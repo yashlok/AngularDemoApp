@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/423f4e1d-8b98-451b-b2aa-58110bd37eea/resourceGroups/FirstResourceGroupY/providers/Microsoft.Web/sites/web-abp",
+    "appService.deploySubpath": "dist"
+}

@@ -18,6 +18,7 @@ import { UserlistComponent } from './user/userlist/userlist.component';
 import { LoginComponent } from './login/login/login.component';
 import { BlobComponent } from './blob/blob.component';
 import { BlobUploadComponent } from './blob/blob-upload/blob-upload.component';
+import { CreateContainerComponent } from './blob/create-container/create-container.component';
 
 export const routes: Routes = [
 
@@ -48,6 +49,7 @@ export const routes: Routes = [
     { path: 'userlist',component: UserlistComponent , canActivate:[authGuard]},
     { path: 'blob', component: BlobComponent, canActivate:[authGuard] },
     { path: 'blob/upload', component: BlobUploadComponent, canActivate:[authGuard] },
+    { path: 'blob/create-container', component: CreateContainerComponent, canActivate:[authGuard] },
     // { path: "**", redirectTo: 'home' }
     { path: "**", redirectTo: 'login' }
 ];

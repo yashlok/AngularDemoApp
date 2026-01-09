@@ -31,7 +31,7 @@ export class NavbarComponent {
     this.authSubscription = this.authService.isLoggedInU.subscribe(status => {
       this.isAuthenticated = status;
     });
-         this.adminSubscription= this.authService.isAdminLoggedIn.subscribe(status => {
+      this.adminSubscription= this.authService.isAdminLoggedIn.subscribe(status => {
       this.isAdmin = status;
     });
   }

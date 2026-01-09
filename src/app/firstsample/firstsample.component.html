@@ -1,4 +1,5 @@
 <!-- <p>firstsample works!</p> -->
-
-<p>Welcome to the User Login!</p>
+ 
+<p *ngIf="!isAdmin">Welcome to the User Login!</p>
+<p *ngIf="isAdmin">You have administrative privileges.</p>
 

@@ -21,4 +21,12 @@ export class BlobService {
     formData.append('file', file);
     return this.http.post(this.uploadUrl, formData);
   }
+
+  deleteImage(filename: string): Observable<any> {
+    return this.http.delete(`https://localhost:7149/api/Storage/filename?filename=${filename}`, { responseType: 'text' });
+  }
+
+  createContainer(containerName: string): Observable<any> {
+    return this.http.post(`https://localhost:7149/api/Storage/createcontainer?containerName=${containerName}`, {}, { responseType: 'text' });
+  }
 }
