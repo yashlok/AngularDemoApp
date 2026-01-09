@@ -24,4 +24,15 @@ export class BlobComponent implements OnInit {
       error: (error) => console.error('Error fetching blobs:', error)
     });
   }
+
+  deleteImage(filename: string): void {
+    if (confirm('Are you sure, want to delete the file?')) {
+      this.blobService.deleteImage(filename).subscribe({
+        next: () => {
+          this.getBlobs();
+        },
+        error: (error) => console.error('Error deleting image:', error)
+      });
+    }
+  }
 }

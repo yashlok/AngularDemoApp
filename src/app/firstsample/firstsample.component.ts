@@ -1,28 +1,35 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { LoggerService } from '../services/logger.service';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Subscription } from 'rxjs';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
 import { Category } from '../models/category';
 import { CategoryService } from '../services/category.service';
+import { CommonModule } from '@angular/common';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-firstsample',
-  imports: [    
+  imports: [ CommonModule   
   ],
   templateUrl: './firstsample.component.html',
   styleUrl: './firstsample.component.css'
 })
 export class FirstsampleComponent implements OnInit {
+  [x: string]: any;
    products: Product[];
    productService = inject(ProductService);
   loggerService = inject(LoggerService);
 
   categories: Category[];
  // categoryService = inject(CategoryService);   
-  constructor(){
+ private adminSubscription!: Subscription;
+  isAdmin: boolean = false;
+  constructor(private authService: AuthService){
     this.products = [];
     this.categories = [];
     this.loggerService.setName("Yashlok");
+      authService= inject(AuthService)  
+    
   }
    
   ngOnInit(): void {
@@ -42,6 +49,9 @@ export class FirstsampleComponent implements OnInit {
     //  console.error("An API failed:", err);
     //}
   //});
+   this.adminSubscription= this.authService.isAdminLoggedIn.subscribe(status => {
+      this.isAdmin = status;
+    });
 
 }
 
